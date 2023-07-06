@@ -1,0 +1,428 @@
+/* loader */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #f7f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* dessus du reste du contenu */
+    z-index: 1;
+    /* loader invisible */
+    animation: loader 1s ease-in 1s both;
+}
+
+/* Keyframes animation du loader */
+@keyframes loader {
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    80%{
+        opacity: 0.9;
+    }
+    99% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0);
+    }
+}
+
+/* boîte loader */
+.box-1 {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-image: linear-gradient(190deg, #9356DC, #FF79DA);
+    /* Ombre profondeur */
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    /* rotation continue */
+    animation: rotate 1s linear infinite;
+}
+
+/* Keyframes animation rotation */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ajout fond intérieur boîte */
+.box-1::before {
+    content: '';
+    position: absolute;
+    inset: 15px;
+    /* Fond noir contraste */
+    background: #353535;
+    border-radius: 50%;
+    box-shadow: rgb(4, 6, 7) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+/* texte loader */
+.loader span {
+    position: absolute;
+    font-family: 'Shrikhand', cursive;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    /* Animation clignoter texte */
+    animation: text-animate412 1.5s linear infinite;
+}
+
+/* Keyframes animation texte */
+@keyframes text-animate412 {
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* body */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+:root {
+    --menu-color: #F7F7F7;
+    --main-bg-color: #9356DC;
+    --filter-bg-color: #FF79DA;
+}
+
+/*header*/
+header {
+    margin-top: 10px;
+}
+
+.logo_and_back {
+    display: flex;
+    justify-content: center;
+}
+
+#logo {
+    margin: 10px;
+    width: 45%;
+}
+
+.localisation {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EAEAEA;
+    color: #353535;
+    font-size: 20px;
+}
+
+/* intro */
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--menu-color);
+    padding-top: 30px;
+}
+
+.intro p,
+h1 {
+    margin: 5px;
+    width: 75%;
+    text-align: center;
+}
+
+.intro p {
+    width: 80%;
+}
+
+p {
+    font-size: 15px;
+}
+
+button {
+    margin-top: 10px;
+    border-radius: 20px;
+    border: none;
+    background: linear-gradient(190deg, #9356DC, #FF79DA);
+    color: white;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+button:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.5));
+}
+
+/* fonctionnement */
+.fonctionnement_liste {
+    padding: 0;
+    margin-bottom: 50px;
+}
+
+ol li {
+    counter-increment: compteur;
+}
+
+ol li::before {
+    content: counters(compteur, "") " ";
+    background-color: #9356DC;
+    color: white;
+    border: solid;
+    position: absolute;
+    left: 5px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+li {
+    display: flex;
+    padding-left: 30px;
+    margin: 20px;
+    border-radius: 15px;
+    height: 60px;
+    align-items: center;
+    background-color: #F6F6F6;
+}
+
+.icons_fonctionnement {
+    padding-left: 5px;
+}
+
+/* liste icons */
+.fa-mobile-screen-button,
+.fa-list-ul {
+    color: #7e7e7e;
+}
+
+.fa-store {
+    color: #9356DC;
+}
+
+/* section restaurants */
+#restaurants {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    background-color: var(--menu-color);
+}
+
+section h2 {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+a {
+    display: flex;
+    text-decoration: none;
+    color: #000000;
+    width: 100%;
+    flex-direction: column;
+}
+
+.card {
+    position: relative;
+    margin: 20px 10px;
+    border-radius: 15px;
+    background-color: white;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+}
+
+.new_restaurant {
+    position: absolute;
+    background-color: #99E2D0;
+    right: 15px;
+    top: 15px;
+    border-radius: 2px;
+    z-index: 1;
+}
+
+.new_restaurant p {
+    color: #008766;
+    margin: 7px;
+}
+
+.card img {
+    position: relative;
+    height: 150px;
+    object-fit: cover;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.card h3,
+p {
+    margin-left: 15px;
+    margin: 10px;
+}
+
+.fa-heart {
+    cursor: pointer;
+    font-size: 20px;
+    right: 20px;
+    bottom: 30px;
+    position: absolute;
+}
+
+.fa-heart:hover {
+    background: linear-gradient(to bottom, #9356DC, #FF79CD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fa-heart:not(:hover) {
+    font-weight: 100;
+    color: black;
+}
+
+/* footer */
+footer {
+    background-color: #353535;
+    padding: 20px;
+}
+
+footer h3 {
+    font-family: 'Shrikhand', cursive;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+}
+
+footer a {
+    color: #FFFFFF;
+}
+
+footer p {
+    margin: 5px;
+    margin-left: 0;
+    color: #FFFFFF;
+}
+
+/* icons footer */
+.fa-utensils {
+    margin-right: 10px;
+}
+
+.fa-handshake-angle {
+    margin-right: 5px;
+}
+
+.footer_icons {
+    display: flex;
+    align-items: center;
+}
+
+footer .fa-solid {
+    color: #F7F7F7;
+}
+
+/* responsive tablette */
+@media screen and (min-width: 768px) {
+
+    section {
+        padding: 0px 30px;
+    }
+
+    #logo {
+        margin: 25px;
+        width: 200px;
+    }
+
+    .fonctionnement {
+        padding-top: 20px;
+    }
+
+    .fonctionnement_liste {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    section ol {
+        display: flex;
+    }
+
+    ol li::before {
+        position: relative;
+        left: -13px;
+    }
+
+    li {
+        padding: 0;
+        width: 100%;
+        margin: 10px;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    article {
+        width: 45%;
+    }
+
+    #restaurants {
+        padding-bottom: 20px;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 50px;
+    }
+
+    footer p {
+        margin-right: 10px;
+    }
+
+    .content_footer {
+        display: flex;
+        padding-right: 20px;
+    }
+}
+
+/* responsive pc */
+@media screen and (min-width: 1024px) {
+
+    section {
+        padding: 0px 100px;
+    }
+
+    li {
+        margin: 30px;
+    }
+}
+
+/* responsive pc large */
+@media screen and (min-width: 1440px) {
+
+    section {
+        padding: 0px 200px;
+    }
+
+    .content_footer {
+        padding-right: 80px;
+    }
+}
